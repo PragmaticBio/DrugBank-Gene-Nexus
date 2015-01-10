@@ -43,7 +43,7 @@ Here I have attempted to bring together as much as possible all information rega
 
 Thank you!
 
-- **References**
-  1. DrugBank 4.0: shedding new light on drug metabolism. Law V, Knox C, Djoumbou Y, Jewison T, Guo AC, Liu Y, Maciejewski A, Arndt D, Wilson M, Neveu V, Tang A, Gabriel G, Ly C, Adamjee S, Dame ZT, Han B, Zhou Y, Wishart DS.Nucleic Acids Res. 2014 Jan 1;42(1):D1091-7.PubMed ID: [24203711](http://www.ncbi.nlm.nih.gov/pubmed/24203711)
+### References
+DrugBank 4.0: shedding new light on drug metabolism. Law V, Knox C, Djoumbou Y, Jewison T, Guo AC, Liu Y, Maciejewski A, Arndt D, Wilson M, Neveu V, Tang A, Gabriel G, Ly C, Adamjee S, Dame ZT, Han B, Zhou Y, Wishart DS.Nucleic Acids Res. 2014 Jan 1;42(1):D1091-7.PubMed ID: [24203711](http://www.ncbi.nlm.nih.gov/pubmed/24203711)
 
  
