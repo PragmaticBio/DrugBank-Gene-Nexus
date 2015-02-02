@@ -10,7 +10,7 @@ library(plyr)
 
 ################################# DATASETS ########################################################
 
-master_drugs<-read.csv('C:/Users/Ryan/Dropbox/Bioconductor/Shiny Apps/all_drugs.csv')
+master_drugs<-read.csv('https://raw.githubusercontent.com/PragmaticBio/DrugBank-Gene-Nexus/master/all_drugs.csv')
 master_target<- subset(master_drugs, Gene.Type == 'target')
 master_enzyme<- subset(master_drugs, Gene.Type == 'enzyme')
 master_transporter<- subset(master_drugs, Gene.Type == 'transporter')
@@ -18,7 +18,7 @@ master_carrier<- subset(master_drugs, Gene.Type == 'carrier')
 
 ################################ DRUG INDICATION DATA #############################################
 
-drug_indication<- read.csv('C:/Users/Ryan/Dropbox/Bioconductor/Shiny Apps/drug_indications.csv')
+drug_indication<- read.csv('https://raw.githubusercontent.com/PragmaticBio/DrugBank-Gene-Nexus/master/drug_indications.csv')
 
 #Function to modify drug name to include link to drugbank
 indicationLinks<- function(dataframe){
@@ -26,7 +26,7 @@ indicationLinks<- function(dataframe){
     urls=c()
     for (i in 1:nrow(dataframe)){
       drug_name<-dataframe$Drug[i]
-      drug_id<- all_drugs$'DrugBank.ID'[which(master_drugs$Drug %in% drug_name)][1]
+      drug_id<- master_drugs$'DrugBank.ID'[which(master_drugs$Drug %in% drug_name)][1]
       urls[i]<-paste0('http://www.drugbank.ca/drugs/', drug_id)
     }
     
