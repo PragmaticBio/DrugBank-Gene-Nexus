@@ -7,10 +7,12 @@
 #Requried Packages
 library(shiny)
 library(plyr)
+library(RCurl)
 
 ################################# DATASETS ########################################################
 
-master_drugs<-read.csv('https://raw.githubusercontent.com/PragmaticBio/DrugBank-Gene-Nexus/master/all_drugs.csv')
+drug_url<-getURL('https://raw.githubusercontent.com/PragmaticBio/DrugBank-Gene-Nexus/master/all_drugs.csv')
+master_drugs<-read.csv(text = drug_url)
 master_target<- subset(master_drugs, Gene.Type == 'target')
 master_enzyme<- subset(master_drugs, Gene.Type == 'enzyme')
 master_transporter<- subset(master_drugs, Gene.Type == 'transporter')
@@ -18,7 +20,8 @@ master_carrier<- subset(master_drugs, Gene.Type == 'carrier')
 
 ################################ DRUG INDICATION DATA #############################################
 
-drug_indication<- read.csv('https://raw.githubusercontent.com/PragmaticBio/DrugBank-Gene-Nexus/master/drug_indications.csv')
+indication_url<-getURL('https://raw.githubusercontent.com/PragmaticBio/DrugBank-Gene-Nexus/master/drug_indications.csv')
+drug_indication<- read.csv(text = indication_url)
 
 #Function to modify drug name to include link to drugbank
 indicationLinks<- function(dataframe){
