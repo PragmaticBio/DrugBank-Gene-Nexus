@@ -8,10 +8,26 @@ As per the [Drugbank](http://www.drugbank.ca/) website: The DrugBank database is
 
 References can be found in the acknowledgement section. I encourage anyone not familiar with DrugBank to visit the site. Here I've tried to consolidate the fields pertaining to gene-drug interaction. Some of the search fields are available at drugbank and are virutally identical. Some on the other hand are unique, allowing one to search for gene famlies (all CYP genes) with *Fuzzy* search and a drug action filter to locate all inhibitors of CYP2D6. 
 
+## Drug Indication
+
+### Overview
+The Drug Indication tab is arguably the most powerful search tool available in the drug-gene nexus. It has two search fields available: *Drug Query* and *Drug Indication*. The first allows one to search for a drug by name, which then retrieves the indication for the drug as well as genes which interact with it at various levels (ie. enzymes that metabolize it; carriers that distribute it; targets that bind or interact with it, etc.). Or if you prefer, you can search for all drugs indicated for breast cancer that are metabolized by CYP3A5 or perhaps breast cancer drugs which target the mu-opioid receptor (OPRM1). The details of the two queries and the filters available are discussed below.
+
+### Drug Query
+
+**Purpose** - The *Drug Query* allows one to search for drug-gene interactions by drug name. This will retrieve the indication for the drug as well as all known gene interactions. It is different from the *Gene-drug nexus* in that the user will get all genes associated with a particular drug or class of drugs, while the *Gene-drug nexus* is essentially the inverse: it is useful when trying to locate all drugs associated with a particular gene or gene family. It also gives drug indications which the nexus does not. *Drug Query* has two filters:
+
+**Drug Search** - Type in the name of your drug and see what you get. For example, when 'acetaminophen' is used, the main panel will retrieve the drug acetaminophen with an indication of 'For temporary relief of fever, minor aches, and pains' as well as the gene associations which include Enzymes: CYP1A2, CYP2D6, SULT1A1, UGT1A10.. etc; Targets: PTGS2, PTGS1; Transporters: ABCB1, SLC22A6; and Carriers: None. One can also click on the name of the drug to go directly to the DrugBank database and see all of the information available there on acetaminophen. This search is spelling sensitive and will probably return a bunch of drugs if you spell it incorrectly so be sure to spell correctly or copy and paste the drug name.
+
+**Drug Class** - One can also search for drugs by class. This will return all drugs that have been categorized by DrugBank as 'barbiturates' or 'benzodiazepines' and even return the gene associations included in every drug retrieved. I've noticed some drugs like phenobarbital, which is a 'barbiturate' not retrievable under that class, but can be found under 'hypnotics and sedatives' or 'anticonvulsants'. This is due to DrugBank and not the program so do not fret if your drug is not found under a particular class.
+
+### Drug Indication
+
+
 ## Gene-drug nexus
 
 ### Overview 
-This is the main search tool for gene-drug interactions. The tab contains two elements: a search filter where search fields can be manipulated depending upon the users interest and a main panel where the results for the search are delivered in a table.
+This is the main search tool for gene-drug interactions. It is mainly used to find all of the drugs associated with a certain gene or family of genes. The tab contains two elements: a search filter where search fields can be manipulated depending upon the users interest and a main panel where the results for the search are delivered in a table.
 
 ### Search Filter
 
