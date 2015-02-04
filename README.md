@@ -15,7 +15,7 @@ The Drug Indication tab is arguably the most powerful search tool available in t
 
 ### Drug Query
 
-The *Drug Query* field allows one to search for drug-gene interactions by drug name. This will retrieve the indication for the drug as well as all known gene interactions. It is different from the *Gene-drug nexus* in that the user will get all genes associated with a particular drug or class of drugs, while the *Gene-drug nexus* is essentially the inverse: it is useful when trying to locate all drugs associated with a particular gene or gene family. It also gives drug indications which the nexus does not. The filters for *Drug Query* include:
+The *Drug Query* field allows one to search for drug-gene interactions by drug name. This will retrieve the indication for the drug as well as all known gene interactions. It is different from the *Gene-Drug Search* in that the user will get all genes associated with a particular drug or class of drugs, while the *Gene-Drug Search* is essentially the inverse: it is useful when trying to locate all drugs associated with a particular gene or gene family. It also gives drug indications which the nexus does not. The filters for *Drug Query* include:
 
 **Drug Search** - Type in the name of your drug and see what you get. For example, when 'acetaminophen' is used, the main panel will retrieve the drug acetaminophen with an indication of 'For temporary relief of fever, minor aches, and pains' as well as the gene associations which include Enzymes: CYP1A2, CYP2D6, SULT1A1, UGT1A10.. etc; Targets: PTGS2, PTGS1; Transporters: ABCB1, SLC22A6; and Carriers: None. One can also click on the name of the drug to go directly to the DrugBank database and see all of the information available there on acetaminophen. This search is spelling sensitive and will probably return a bunch of drugs if you spell it incorrectly so be sure to spell correctly or copy and paste the drug name.
 
@@ -25,15 +25,15 @@ The *Drug Query* field allows one to search for drug-gene interactions by drug n
 
 The *Drug Indication* field allows one to search for drugs by indication and to further refine the search by filtering for drug groups, associated genes as well as their actions. For example, using *Drug Indication* you can search for all 'approved' drugs indicated for 'breast cancer' and that are 'inhibitors' of 'CYP2D6'. In this case all four filters are used to show the drugs of interest. The filters for *Drug Indication* include:
 
-**Indication Search** - Type in an indication of interest. This can be vast and includes searches for diseases like cancer, bipolar disorder, SSC (small-cell carcinoma) or any disease sequela one can come up with. The program simply takes the expression entered and cross-references it with every drug indication in the database.
+**Indication Search** - Type in an indication of interest. This can be vast and includes searches for diseases like cancer, bipolar disorder, SCC (small-cell carcinoma) or any disease sequela one can come up with. The program simply takes the expression entered and cross-references it with every drug indication in the database.
 
-**Gene Search** - Type in a gene of interest to narrow down the search. Often the *Indication Search* will deliver a number of drugs if used alone or for research or clinical reasons it might be useful to know which drugs have some association with a gene of interest; for instance, CYP2D6. If so then this field helps to narrow down that search.
+**Gene Search** - Type in a gene of interest to narrow down the search. Often the *Indication Search* will deliver a large number of drugs that need to be narrowed down. In addition research or clinical reasons may make it useful to know which drugs have some association with a gene of interest; for instance, CYP2D6. If so then this field helps to narrow down that search. This search is also case sensitve so please type 'CYP2D6' and not 'cyp2d6'.
 
 **Drug Group** - Select which drug groups you want to include in your search. These include: experimental, approved, withdrawn, illict and more. Drugs are almost always classified in more than one group so selecting 'approved' will include any drug thus classified regardless of whether it is also illict, etc.
 
 **Gene Type and Drug Action** - The first thing shown is a drop down menu asking to filter the search by gene type. Gene types include: enzymes, targets, transporters and carriers. If no gene is put into the *Gene Search* field then all drugs with 'Enzyme' or 'Target' associations will be delivered. If a gene is put into the *Gene Search* that is not found under enzymes for instance, then a message will be given to recheck the search fields. Once a gene type is selected, check boxes will be available to choose the associated actions depending on the gene type. For instance selecting 'Enzyme' allows a search for inhibitors, substrates, activators and many more. These filters are added so that searches can be refined to only include gene-drug interactions of interest.
 
-## Gene-drug nexus
+## Gene-drug search
 
 ### Overview 
 This is the main search tool for gene-drug interactions. It is mainly used to find all drugs associated with a certain gene or family of genes. The tab contains two elements: a search filter where search fields can be manipulated depending upon the users interest and a main panel where the results for the search are delivered in a table.
@@ -61,7 +61,17 @@ This is the main search tool for gene-drug interactions. It is mainly used to fi
 ##Class Browse
 
 ### Overview
-Due to the enormous amount of drug classes used by DrugBank I felt the need to add a feature that makes it easy to discover the kind of drug classes which dominate a particular gene or gene family. This is mainly to be used as a browse feature which may help to find a particular drug or gene-drug interaction when using the *Drug Indication* tab or the *Gene-drug nexus*.
+Due to the enormous amount of drug classes used by DrugBank I felt the need to add a feature that makes it easy to discover the kind of classes which dominate a particular gene or gene family. This is mainly to be used as a browse feature which may help to find a particular drug or gene-drug interaction when using the *Drug Indication* tab or the *Gene-Drug Search*. Unlike the two former features this is the only one with a graphical output which shows the numbers of drugs in each class using a bar graph. If the cursor is set to hover over one of these bars a clear display will show the class and the number of drugs composing the bar. 
+
+**Gene Category** - The class browse feature splits the DrugBank database into the already familiar classifications of gene type or category. These include: enzyme, target, transporter and carrier. The default setting is to show the drug classes for all genes that encode known enzymes. By switching it to another category the classes for all targets or transporters will be shown. 
+
+**Search Type** - This filter is exactly like the one described for the *Gene-Drug Search* feature so please refer to that section for details. The important point is that this allows for very general searches like the entire CYP family by typing 'CYP' into the *Gene Search* below.
+
+**Gene Search** - Exactly like other filters of this type: just type any gene and the graph will change accordingly. For instance typing 'CYP2D6' with a *Gene Category* of 'Enzyme' will give all classes associated with the Cytochrome P450 2D6 enzyme. If in the prior search we typed in 'HTR2A', which is a type of target, then the program would have prompted us to review the filters. If you are unsure what your gene is, simply shuffle through all four categories until it's found.
+
+**Classes per Page** - The amount of classes ahown per page. Check the class total to get an idea of how big the list is depending on the search. Generally speaking classes with the most drugs are probably the most interesting.
+
+**Drug Range Bar** - Choose the drug range shown on the graph. For instance, it can be cumbersome to scroll through a list of 100 classes but looking at 20 is easy. With the scroll bar classes that fall within the set drug range, like all classes with 5 - 15 drugs, will be shown. This filter is limited to showing only the amount that fall within this range and that satisfy the *Classes per Page* filter. In other words if the 5 - 15 range is picked, but there is more than 10 drugs that fall into this range, then only the top 10 will be shown. Switching to 20 or 50 classes per page may be required to capture all classes that fall into this range. 
 
 ##Acknowledgements 
 
