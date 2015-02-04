@@ -214,33 +214,28 @@ output$indication_table <- renderGvis({
 #gene list for drug query
 output$geneText<- renderUI({
   
-  #function to create breaks in a list of enzymes, targets, etc. after 10.. 20 entries.
+  #function to create breaks in a list of enzymes, targets, etc. after 10, 20... 100 entries.
   breakPoint<- function(index){
     genelist<- drugGeneData()[[index]]
-    if(length(genelist) <= 10 ){
-      new_protein <- paste(genelist, collapse= ",&#160;")
-      
-    }else if(length(genelist) > 10 & length(genelist) < 20){
-      new_protein <- paste(paste(genelist[1:10], collapse= ",&#160;"),
-                           paste(genelist[11:length(genelist)], collapse= ",&#160;"),
-                           collapse = "<br/>")
-      
-    }else if(length(genelist) > 20){
-      new_protein <- paste(paste(genelist[1:10], collapse= ",&#160;"),
-                           paste(genelist[11:20], collapse= ",&#160;"),
-                           paste(genelist[21:length(genelist)], collapse= ",&#160;"),
-                           collapse = "<br/>")
-    }  
+    listsplit<- 
+      split(genelist, gl(round_any(length(genelist), 10, ceiling)/10, 10)[1:length(genelist)])
+    
+    mod_genelist<-c()
+    for(i in 1:length(listsplit)){
+      mod_genelist[i]<- paste(listsplit[[i]], collapse= ",&#160;")
+    }
+    new_protein<- paste(mod_genelist, collapse = "<br/>")
+   
     return(new_protein)
   }
   
-  #names of enzymes, targets, etc. associated with drug or drug class entry
-  enzyme<-HTML(paste("<b>Enzymes: </b>", breakPoint(1)))
-  target<-HTML(paste("<b>Targets: </b>", breakPoint(2)))
-  transporter<-HTML(paste("<b>Transporters: </b>", breakPoint(3)))
-  carrier<-HTML(paste("<b>Carriers: </b>", breakPoint(4)))   
-  
   if(input$indication_drug == 'Drug Query'){
+    #names of enzymes, targets, etc. associated with drug or drug class entry
+    enzyme<-HTML(paste("<b>Enzymes: </b>", breakPoint(1)))
+    target<-HTML(paste("<b>Targets: </b>", breakPoint(2)))
+    transporter<-HTML(paste("<b>Transporters: </b>", breakPoint(3)))
+    carrier<-HTML(paste("<b>Carriers: </b>", breakPoint(4)))   
+  
     genetext<- HTML(paste(paste("<b>", input$indicationSearch, "gene associations: ", "</b>",
                                 "<br/>"), 
                           enzyme, target, transporter, carrier, sep= "<br/>"))
@@ -257,7 +252,7 @@ output$geneText<- renderUI({
   return(genetext)
 })
 
-################################# GENE-DRUG NEXUS SERVER ######################################
+################################# GENE-DRUG SEARCH SERVER ######################################
 
 #Function that changes dataset based on radiobutton input
 geneType<-reactive({

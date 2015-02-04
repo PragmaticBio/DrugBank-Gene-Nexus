@@ -102,11 +102,11 @@ shinyUI(pageWithSidebar(
       )    
     ),
 
-########################################### GENE-DRUG NEXUS ###################################
+########################################### GENE-DRUG SEARCH ###################################
 
 conditionalPanel(
-  'input.dataset === "Gene-Drug Nexus"',
-  h4("Gene-Drug Nexus"),
+  'input.dataset === "Gene-Drug Search"',
+  h4("Gene-Drug Search"),
   radioButtons('geneCategory', label= "Please choose gene category", 
                choices= c('All', 'Enzyme', 'Target',
                           'Transporter', 'Carrier')),
@@ -251,7 +251,7 @@ conditionalPanel(
                htmlOutput('geneText')),
       
       #tab for gene-drug nexus
-      tabPanel("Gene-Drug Nexus", 
+      tabPanel("Gene-Drug Search", 
                strong(htmlOutput("text")), 
                htmlOutput("table")),
       

@@ -11,8 +11,9 @@ library(RCurl)
 
 ################################# DATASETS ########################################################
 
-drug_url<-getURL('https://raw.githubusercontent.com/PragmaticBio/DrugBank-Gene-Nexus/master/all_drugs.csv')
-master_drugs<-read.csv(text = drug_url)
+#drug_url<-getURL('https://raw.githubusercontent.com/PragmaticBio/DrugBank-Gene-Nexus/master/all_drugs.csv')
+#master_drugs<-read.csv(text = drug_url)
+master_drugs<-read.csv('C:/Users/Ryan/Dropbox/Bioconductor/Shiny Apps/all_drugs.csv')
 master_target<- subset(master_drugs, Gene.Type == 'target')
 master_enzyme<- subset(master_drugs, Gene.Type == 'enzyme')
 master_transporter<- subset(master_drugs, Gene.Type == 'transporter')
@@ -20,8 +21,9 @@ master_carrier<- subset(master_drugs, Gene.Type == 'carrier')
 
 ################################ DRUG INDICATION DATA #############################################
 
-indication_url<-getURL('https://raw.githubusercontent.com/PragmaticBio/DrugBank-Gene-Nexus/master/drug_indications.csv')
-drug_indication<- read.csv(text = indication_url)
+#indication_url<-getURL('https://raw.githubusercontent.com/PragmaticBio/DrugBank-Gene-Nexus/master/drug_indications.csv')
+#drug_indication<- read.csv(text = indication_url)
+drug_indication<- read.csv('C:/Users/Ryan/Dropbox/Bioconductor/Shiny Apps/drug_indications.csv')
 
 #Function to modify drug name to include link to drugbank
 indicationLinks<- function(dataframe){
@@ -240,8 +242,7 @@ carrier<- nexusLinks(carrier)
 all_drugs<- rbind(enzyme, target, transporter, carrier)
 
 #split classes, actions and groups for all data
-split_class_all<-strsplit(as.character(all_drugs$Classes),
-                          '(?<=[A-Z])(?=[A-Z][a-z])|(?<=[a-z])(?=[0-9])|(?<=[^A-Z][a-z])(?=[A-Z])', perl=T)
+split_class_all<-strsplit(as.character(all_drugs$Classes), '/')
 split_action_all<-strsplit(as.character(all_drugs$'Drug.Action'), '/')
 split_group_all<-strsplit(as.character(all_drugs$Groups), '/')
 
