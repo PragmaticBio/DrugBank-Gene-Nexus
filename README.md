@@ -65,7 +65,7 @@ Due to the enormous amount of drug classes used by DrugBank I felt the need to a
 
 **Gene Category** - The class browse feature splits the DrugBank database into the already familiar classifications of gene type or category. These include: enzyme, target, transporter and carrier. The default setting is to show the drug classes for all genes that encode known enzymes. By switching it to another category the classes for all targets or transporters will be shown. 
 
-**Search Type** - This filter is exactly like the one described for the *Gene-Drug Search* feature so please refer to that section for details. The important point is that this allows for very general searches like the entire CYP family by typing 'CYP' into the *Gene Search* below.
+**Search Type** - This filter is exactly like the one described for the *Gene-Drug Search* feature so please refer to that section for details. The important point is that this allows for very general searches when the *Fuzzy* search type is used. In this way the entire CYP gene family can be queried by entering 'CYP' into *Gene Search* filter.
 
 **Gene Search** - Exactly like other filters of this type: just type any gene and the graph will change accordingly. For instance typing 'CYP2D6' with a *Gene Category* of 'Enzyme' will give all classes associated with the Cytochrome P450 2D6 enzyme. If in the prior search we typed in 'HTR2A', which is a type of target, then the program would have prompted us to review the filters. If you are unsure what your gene is, simply shuffle through all four categories until it's found.
 
