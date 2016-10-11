@@ -1,6 +1,6 @@
 # DrugBank-Gene-Nexus
 
-Search gene-drug interactions found in DrugBank with Shiny.
+Search gene-drug interactions found in DrugBank with Shiny. Please visit the App here: https://rgarrison44.shinyapps.io/Gene_Nexus/
 
 ## What is DrugBank?
 
